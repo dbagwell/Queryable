@@ -22,6 +22,8 @@
 
 import SwiftUI
 
+#if os(macOS)
+#else
 private struct FullScreenCoverModifier<Item, Result, QueryContent: View>: ViewModifier {
     @ObservedObject private var queryable: Queryable<Item, Result>
     private var onDismiss: (() -> Void)?
@@ -72,3 +74,4 @@ public extension View {
         })
     }
 }
+#endif
